@@ -17,17 +17,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('login', 'API\UserController@login');
-
-Route::group(['middleware' => 'auth:api'], function(){
-	Route::get('user', 'API\UserController@getAll');
-	Route::post('user', 'API\UserController@post');
-	Route::delete('user', 'API\UserController@delete');
-	Route::get('transaction', 'API\TransactionController@getAll');
-	Route::get('transaction/{id}', 'API\TransactionController@getById');
-	Route::put('transaction/{id}', 'API\TransactionController@putById');
-	Route::post('transaction', 'API\TransactionController@post');
-	Route::delete('transaction/{id}', 'API\TransactionController@delete');
-	Route::get('category', 'API\CategoryController@getAll');
-	Route::post('category', 'API\CategoryController@post');
-	Route::put('category/{id}', 'API\CategoryController@putById');
+Route::group(['middleware' => 'auth:api'], function() {
+    Route::get('user', 'API\UserController@getAll');
+    Route::put('user/{id}', 'API\UserController@putById');
+    Route::post('user', 'API\UserController@post');
+    Route::delete('user/{id}', 'API\UserController@delete');
+    Route::get('transactions', 'API\TransactionsController@getAll');
+    Route::put('transactions/{id}', 'API\TransactionsController@putById');
+    Route::post('transactions', 'API\TransactionsController@post');
+    Route::delete('transactions/{id}', 'API\TransactionsController@delete');
+    Route::get('categories', 'API\CategoriesController@getAll');
+    Route::put('categories/{id}', 'API\CategoriesController@putById');
+    Route::post('categories', 'API\CategoriesController@post');
 });

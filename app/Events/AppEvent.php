@@ -14,9 +14,9 @@ class AppEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-		public $command;
-		public $payload;
-		
+    public $command;
+    public $payload;
+        
     /**
      * Create a new event instance.
      *
@@ -25,7 +25,7 @@ class AppEvent implements ShouldBroadcast
     public function __construct($command, $payload)
     {
         $this->command = $command;
-				$this->payload = $payload;
+        $this->payload = $payload;
     }
 
     /**
